@@ -26,6 +26,8 @@ class LTRTreeLayout {
 
   findPositions (nodeKey, edgeKey) {
     return this.cache.find((layout) => {
+      // Disable cache to force redraw when updating data
+      return false;
       // If there are more nodes or edges than are in the layout, then we know it doesn't match
       if (nodeKey.length > layout.nodeKey.length || edgeKey.length > layout.edgeKey.length) {
         return false;
